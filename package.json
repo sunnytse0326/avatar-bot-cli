@@ -1,0 +1,16 @@
+{
+  "name": "avator-robot-cli",
+  "version": "1.0.0",
+  "description": "An application which provides the grid environment to move by accepting dedicated commands",
+  "bin": {
+    "avator": "bin/avator-robot-cli"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sunny Tse",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.2"
+  }
+}
