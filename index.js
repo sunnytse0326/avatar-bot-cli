@@ -42,6 +42,11 @@ let determineAction = (question) => {
         } else if(!helpers.isNumeric(args[1]) || !helpers.isNumeric(args[2])){
           console.log(chalk.red(errorMessages.CORRECT_PLACE_LOCATION))
           determineAction(question)
+        } else if(args[3] !== 'N' || args[3] !== 'W' || args[3] !== 'E' || args[3] !== 'S' ){
+            console.log(chalk.red(errorMessages.CORRECT_PLACE_FACING))
+            determineAction(question)
+        } else{
+            
         }
       break
       case 'MOVE':
