@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "An application which provides the grid environment to move by accepting dedicated commands",
   "bin": {
-    "avator": "bin/avator-robot-cli"
+    "avatar-robot-cli": "./bin/avatar-robot-cli"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
