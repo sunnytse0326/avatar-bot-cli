@@ -27,7 +27,7 @@ module.exports = class Avatar {
   }
 
   get direction(){
-    return this.direction
+    return this.orientation
   }
 
   set direction(orientation) {
@@ -35,7 +35,30 @@ module.exports = class Avatar {
   }
 
   left(){
+    this.orientation = direction[((direction.indexOf(this.orientation) - 1) + 4) % 4]
+  }
+
+  right(){
     this.orientation = direction[((direction.indexOf(this.orientation) + 1) + 4) % 4]
+  }
+
+  move(){
+    switch(this.orientation){
+      case 'N':
+        this.posY += 1
+      break
+      case 'E':
+        this.posX += 1
+      break;
+      case 'S':
+        this.posY -= 1
+      break;
+      case 'W':
+        this.posX -= 1
+      break;
+      default:
+      break;
+    }
   }
 
   save(dataPath){
