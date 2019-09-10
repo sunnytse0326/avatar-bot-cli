@@ -110,6 +110,9 @@ let determineAction = (question) => {
             reportCurrentStatus()
             determineAction(question)
          break
+         case 'EXIT':
+            process.exit()
+         break
          default:
             console.log(chalk.red(errorMessages.INVALID_INPUT))
             determineAction(question)
