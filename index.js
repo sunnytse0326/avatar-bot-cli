@@ -18,14 +18,14 @@ let avatar = null
 const errorMessages = {
    INVALID_INPUT: 'Please input valid commands',
    CORRECT_PLACE_ARGUMENTS: 'Please input correct PLACE arguments',
-   CORRECT_PLACE_OUTSIDE: 'The avator cannot be placed outside the grid area',
+   CORRECT_PLACE_OUTSIDE: 'The avatar cannot be placed outside the grid area',
    CORRECT_PLACE_LOCATION: 'Avatar location must be in numeric format',
    CORRECT_PLACE_FACING: 'Avatar facing direction must be in \'N\', \'E\', \'S\', \'W\' characters',
    OUT_OF_BOUNDARY: 'Avatar cannot be moved out of the boundary of grid',
 }
 
 const askQuestion = {
-   PLACE_AVATAR: 'Place your first avator: ',
+   PLACE_AVATAR: 'Place your first avatar: ',
    NEXT_ACTION: 'What is the next action? '
 }
 

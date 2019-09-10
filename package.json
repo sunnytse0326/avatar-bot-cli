@@ -1,13 +1,12 @@
 {
-  "name": "avatar-robot-cli",
+  "name": "avatar-bot-cli",
   "version": "1.0.0",
   "description": "An application which provides the grid environment to move by accepting dedicated commands",
   "bin": {
-    "avatar-robot-cli": "./bin/avatar-robot-cli"
+    "avatar-bot-cli": "./bin/avatar-bot-cli"
   },
   "scripts": {
     "test": "mocha"
-
   },
   "author": "Sunny Tse",
   "license": "ISC",

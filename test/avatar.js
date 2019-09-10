@@ -3,7 +3,7 @@ const Avator = require('../model/avatar')
 const helper = require('../utils/helpers')
 
 describe('#Avator Functionalities', () => {
-  it('should successfully create an avator with an constructor of correct input', done => {
+  it('should successfully create an avatar with an constructor of correct input', done => {
     var avatar = new Avator(0, 0,'E')
     avatar.x.should.equal(0)
     done()
