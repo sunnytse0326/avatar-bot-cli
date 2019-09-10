@@ -56,7 +56,7 @@ const setAvatarPosition = async (args) => {
  }
  
  const reportCurrentStatus = () => {
-   console.log(`Current Status: ${JSON.stringify(avatar.getJson())}`)
+   console.log(`${avatar.x} ${avatar.y} ${avatar.direction}`)
 }
 
 let determineAction = (question) => {
