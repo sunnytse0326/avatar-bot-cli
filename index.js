@@ -1,5 +1,6 @@
 const chalk = require('chalk')
 const helpers = require('./utils/helpers')
+const dotenv = require('dotenv').config()
 
 const readline = require('readline').createInterface({
    input: process.stdin,
@@ -8,13 +9,16 @@ const readline = require('readline').createInterface({
 
 const Avatar = require('./model/avatar')
 
-const dataFilePath = `${__dirname}/data/avatar.js`
+const dataFilePath = `${__dirname}/${process.env.DATA_DIR || "data/avatar.js"}`
+const gridX = process.env.GRID_X || 5
+const gridY = process.env.GRID_Y || 5
 
 let avatar = null
 
 const errorMessages = {
    INVALID_INPUT: 'Please input valid commands',
    CORRECT_PLACE_ARGUMENTS: 'Please input correct PLACE arguments',
+   CORRECT_PLACE_OUTSIDE: 'The avator cannot be placed outside the grid area',
    CORRECT_PLACE_LOCATION: 'Avatar location must be in numeric format',
    CORRECT_PLACE_FACING: 'Avatar facing direction must be in \'N\', \'E\', \'S\', \'W\' characters',
 }
@@ -60,20 +64,23 @@ let determineAction = (question) => {
         } else if(!helpers.isNumeric(args[1]) || !helpers.isNumeric(args[2])){
             console.log(chalk.red(errorMessages.CORRECT_PLACE_LOCATION))
             determineAction(question)
+         } else if(args[1] >= gridX || args[2] >= gridY){
+            console.log(chalk.red(errorMessages.CORRECT_PLACE_OUTSIDE))
+            determineAction(question)
          } else if(args[3] !== 'N' && args[3] !== 'W' && args[3] !== 'E' && args[3] !== 'S' ){
             console.log(args[3])
             console.log(chalk.red(errorMessages.CORRECT_PLACE_FACING))
             determineAction(question)
         } else{
             setAvatarPosition(args)
-            determineAction(askQuestion.CORRECT_PLACE_FACING)
+            determineAction(askQuestion.NEXT_ACTION)
         }
       break
       case 'LEFT':
         
       break
       case 'RIGHT':
-         
+
       break
       case 'MOVE':
       break
