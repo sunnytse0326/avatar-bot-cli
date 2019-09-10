@@ -77,7 +77,9 @@ let determineAction = (question) => {
         }
       break
       case 'LEFT':
-        
+         avatar.left()
+         avatar.save(dataFilePath)
+         determineAction(question)
       break
       case 'RIGHT':
 

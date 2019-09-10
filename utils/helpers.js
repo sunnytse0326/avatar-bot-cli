@@ -19,12 +19,12 @@ exports.readFile = (dataFilePath) => new Promise(r => {
   });
 })
 
-exports.writeFile = (dataFilePath, context) => {
-  fs.writeFileSync(dataFilePath, context, function(err) {
+exports.writeFile = (dataFilePath, context) => new Promise(r => {
+  return fs.writeFile(dataFilePath, context, function(err) {
     if(err) {
         console.log(err)
-        return {}
+        r()
     }
-    return context
+    r(context)
   }); 
-}
+})

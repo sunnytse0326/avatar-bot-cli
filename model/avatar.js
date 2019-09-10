@@ -1,6 +1,8 @@
 const fs = require('fs')
 const helpers = require('../utils/helpers')
 
+const direction = ['N','E','S','W']
+
 module.exports = class Avatar {
   constructor(x, y, d){
       this.posX = x
@@ -32,15 +34,19 @@ module.exports = class Avatar {
     this.orientation = orientation
   }
 
-  getJson(){
-    return { 'X': parseInt(args[1]), 'Y': parseInt(args[2]), 'F': args[3] }
+  left(){
+    this.orientation = direction[((direction.indexOf(this.orientation) + 1) + 4) % 4]
   }
 
   save(dataPath){
-    if(!helpers.readFileExist(dataFilePath)){
-      helpers.createEmptyFile(dataFilePath)
+    if(!helpers.readFileExist(dataPath)){
+        helpers.createEmptyFile(dataPath)
     }
-    helpers.writeFile(dataPath, JSON.stringify(getJson()))
+    helpers.writeFile(dataPath, JSON.stringify(this.getJson()))
+  }
+
+  getJson(){
+    return { 'X': parseInt(this.posX), 'Y': parseInt(this.posY), 'F': this.orientation }
   }
 }
 
