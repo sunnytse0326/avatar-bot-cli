@@ -28,3 +28,7 @@ exports.writeFile = (dataFilePath, context) => new Promise(r => {
     r(context)
   }); 
 })
+
+exports.deleteFile = (dataFilePath) => {
+  fs.unlinkSync(dataFilePath);
+}
